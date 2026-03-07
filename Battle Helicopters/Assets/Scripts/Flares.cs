@@ -19,15 +19,7 @@ public class Flares : MonoBehaviour
     public void LaunchFlares()
     {
         isPaused = !isPaused;
-
-        if (isPaused == true)
-        {
-            flares.SetActive(isPaused);
-        }
-
-        else
-        {
-            flares.SetActive(false);
-        }
+    
+        vfx.SetBool("isSpawning", isPaused);
     }
 }
