@@ -6,7 +6,6 @@ using static UnityEngine.Rendering.DebugUI;
 
 public class Flares : MonoBehaviour
 {
-    public GameObject flares;
     private bool isPaused = false;
 
     public VisualEffect vfx;

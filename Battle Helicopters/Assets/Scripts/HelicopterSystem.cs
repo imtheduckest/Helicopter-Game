@@ -8,17 +8,18 @@ public class HelicopterSystem : MonoBehaviour
 
     [Header("Movement")]
     public float liftForce = 12f;
-    public float descendForce = 10f;
-    public float moveForce = 8f;
+    public float descendForce = 5f;
+    public float moveForce = 2f;
     public float downForce = 10f;
+    public float maxHorizontalSpeed = 10f;
 
     [Header("Tilt")]
-    public float maxTiltAngle = 25f;
-    public float tiltSpeed = 5f;
+    public float maxTiltAngle = 45f;
+    public float tiltSpeed = 1.2f;
 
     [Header("Stability")]
     public float hoverForce = 9.8f;
-    public float fallSpeed = 2f;
+    public float fallSpeed = 1.2f;
 
     [Header("Rotors")]
     private float maxMainRotorSpeed = 2000f;
@@ -79,6 +80,11 @@ public class HelicopterSystem : MonoBehaviour
 
         // Horizontal movement
         rb.AddForce(Vector2.right * horizontal * moveForce, ForceMode2D.Force);
+
+        // Limit horizontal speed
+        Vector2 velocity = rb.velocity;
+        velocity.x = Mathf.Clamp(velocity.x, -maxHorizontalSpeed, maxHorizontalSpeed);
+        rb.velocity = velocity;
 
         // Tilt
         float targetTilt = -horizontal * maxTiltAngle;

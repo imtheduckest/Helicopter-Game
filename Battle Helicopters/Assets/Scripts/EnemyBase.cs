@@ -7,7 +7,6 @@ public abstract class EnemyBase : MonoBehaviour , IDamageable
     public float maxHealth = 100;
     protected float currentHealth;
 
-    public Sprite aliveSprite;
     public Sprite deadSprite;
 
     protected SpriteRenderer spriteRenderer;
@@ -17,9 +16,6 @@ public abstract class EnemyBase : MonoBehaviour , IDamageable
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         currentHealth = maxHealth;
-
-        if (aliveSprite != null)
-            spriteRenderer.sprite = aliveSprite;
     }
 
     public virtual void TakeDamage(float amount)

@@ -2,39 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Missile : MonoBehaviour
+public abstract class Missile : MonoBehaviour
 {
-    public float speed = 30;
-    public float damage = 50;
-    public float explosionRadius = 2;
+    public float speed = 30f;
+    public float damage = 50f;
+    public float explosionRadius = 2f;
+    public float lifetime = 5f;
     public LayerMask damageLayers;
     public GameObject explosionEffect;
 
-    private Rigidbody2D rb;
-    void Awake()
+    protected Rigidbody2D rb;
+
+    protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
-        rb.velocity = Vector2.right * speed;
+        SetInitialVelocity();
+        Invoke(nameof(Explode), lifetime);
     }
 
-    void Update()
-    {
-        if (transform.position.y <= -100f)
-        {
-            Destroy(gameObject);
-        }
-    }
-    void OnCollisionEnter2D(Collision2D collision)
+    protected abstract void SetInitialVelocity();
+
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
         Explode();
     }
 
-    void Explode()
+    public void Explode()
     {
         // Damage in radius
         Collider2D[] hits = Physics2D.OverlapCircleAll(
