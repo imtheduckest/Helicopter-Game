@@ -36,6 +36,8 @@ public abstract class EnemyBase : MonoBehaviour , IDamageable
         if (deadSprite != null)
             spriteRenderer.sprite = deadSprite;
 
+        this.enabled = false;
+
         OnDeath();
     }
 
