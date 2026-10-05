@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 30
-  damage: 50
+  damage: 100
   explosionRadius: 2
   lifetime: 5
   damageLayers:

@@ -354,6 +354,7 @@ GameObject:
   - component: {fileID: 7869789142532832191}
   - component: {fileID: 2702954363588883687}
   - component: {fileID: 7525651291949272456}
+  - component: {fileID: 3115671588145294271}
   m_Layer: 6
   m_Name: AH-64
   m_TagString: Player
@@ -542,9 +543,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0868dffb537c77b459036c39b9edafd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missilePrefab: {fileID: 6144747954065501004, guid: adc633416c275af4eb7a209522d6e4b6, type: 3}
+  missilePrefab: {fileID: 8840938183319054873, guid: aa9d1f5f2fde1e44ab649d3cc4b84a8f, type: 3}
   firePoint: {fileID: 7952982423184866909}
-  fireRate: 0.5
+  fireRate: 5
+  lockTime: 5
 --- !u!114 &2702954363588883687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -574,6 +576,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vfx: {fileID: 2277075978411507574}
+--- !u!114 &3115671588145294271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4399313662192121554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13cb4e679026d714ca28ba28712dd2b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  armorReduction: 0
 --- !u!1 &5085290673016765366
 GameObject:
   m_ObjectHideFlags: 0
